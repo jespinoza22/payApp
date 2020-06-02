@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "payApp"
+    }
+  },
+  "defaultProject": "payApp",
+  "cli": {
+    "analytics": "2bc9596d-6077-4653-9917-093330edab7b"
+  }
 }
