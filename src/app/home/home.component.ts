@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  responseJson: string;
+
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  pingApi() {
+    this.api.ping$().subscribe(
+      res => this.responseJson = res
+    );
   }
 
 }

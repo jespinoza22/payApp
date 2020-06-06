@@ -3,4 +3,7 @@
     <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
     <a routerLink="/">Home</a>&nbsp;
     <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+    <a *ngIf="auth.userProfile as profile" href="#">
+        welcome {{ profile.given_name }}
+    </a>
 </header>

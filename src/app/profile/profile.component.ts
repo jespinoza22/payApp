@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { mergeMap, catchError } from 'rxjs/operators';
+import { ApiService } from 'src/app/api.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +10,20 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  responseJson: string;
+
+  constructor(
+    public auth: AuthService,
+    private api: ApiService
+  ) {
+    console.log(auth);
+  }
 
   ngOnInit() {
+  }
+
+  pingApi() {
+    this.api.ping$();
   }
 
 }
