@@ -1,0 +1,20 @@
+<!-- <header>
+    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+    <a routerLink="/">Home</a>&nbsp;
+    <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
+    <a *ngIf="auth.userProfile as profile" href="#">
+        welcome {{ profile.given_name }}
+    </a>
+</header> -->
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-header">
+        <div class="row between-xs middle-xs header-row">
+            <nav>
+                <a mat-button routerLinkActive="active" (click)="auth.login()" *ngIf="!auth.loggedIn">Iniciar Sesión</a>
+                <a mat-button routerLinkActive="active" *ngIf="auth.userProfile as profile">{{ profile.given_name }}</a>
+                <a mat-button routerLinkActive="active" (click)="auth.logout()" *ngIf="auth.loggedIn">Salir</a>
+            </nav>          
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

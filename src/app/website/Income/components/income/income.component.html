@@ -1,0 +1,48 @@
+<div class="income-filter">
+    <h2>Ingresos</h2>
+    <div class="filter">
+        <div class="filter-inline">
+            <div class="filter-inline-1">
+                <mat-label>Año: </mat-label>
+                <mat-form-field>
+                    <mat-label>Seleccione</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let year of years" [value]="year.value">
+                        {{year.name}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="filter-inline-2">
+                <mat-label>Descripción: </mat-label>
+                <mat-form-field>
+                    <input matInput >
+                </mat-form-field>
+            </div>
+        </div>  
+        <div class="filter-inline">
+            <div class="filter-inline-1">
+                <mat-label>Mes: </mat-label>
+                <mat-form-field>
+                    <mat-label>Seleccione</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let month of months" [value]="month.value">
+                        {{month.name}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="filter-inline-2">
+                
+                    <mat-label class="monto">Monto: </mat-label>
+                    <mat-slider
+                    thumbLabel
+                    tickInterval="100"
+                    min="1"
+                    max="1000"></mat-slider>      
+            </div>
+        </div> 
+        <button mat-raised-button>Consultar</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</div>

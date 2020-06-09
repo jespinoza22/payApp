@@ -1,0 +1,60 @@
+.income-filter {
+    text-align: center;
+}
+
+.income-filter h2 {
+    font-size: 2em;
+}
+
+.filter {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 15px 0;
+}
+
+.filter-inline {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 50px;
+}
+
+.filter-inline mat-label{
+    padding-right: 20px;
+}
+
+.filter-inline mat-slider{
+    width: 70%;
+}
+
+.filter-inline-1 {
+    width: 50%;
+}
+
+.filter-inline-2 {
+    width: 50%;
+}
+
+.filter-inline-2 mat-slider {
+    width: 180px;
+    padding: 0;
+}
+
+.div-label {
+    margin-right: 0px;
+    width: 30%;
+}
+
+.div-value{
+    margin: 0;
+    padding: 0;
+    width: 70%;
+}
+
+.select-month {
+    width: 150px;
+}
+
+.monto {
+    width: 250px !important;
+}
