@@ -5,31 +5,31 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
-import { LayoutComponent } from './layout/component/layout.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: LayoutComponent,
+  //   // canActivate: [AuthGuard],
+  //   children: [
+  //     {
+  //       path: '',
+  //       redirectTo: 'home',
+  //       pathMatch: 'full',
+  //      },
+  //     {
+  //       path: 'income',
+  //       loadChildren: () => import('./website/Income/income.module').then(m => m.IncomeModule),
+  //       data: { preload: true }
+  //     }
+  //   ]
+  // },
   {
     path: '',
     component: LayoutComponent,
-    // canActivate: [AuthGuard],
-    children: [
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-       },
-      {
-        path: 'income',
-        loadChildren: () => import('./website/Income/income.module').then(m => m.IncomeModule),
-        data: { preload: true }
-      }
-    ]
-  },
-  // {
-  //   path: 'home',
-  //   component: LayoutComponent,
-  //   canActivate: [AuthGuard]
-  // }
+    // canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
