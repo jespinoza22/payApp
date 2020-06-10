@@ -5,8 +5,7 @@ import { IncomeRoutingModule } from './income-routing.module';
 import { IncomeComponent } from './components/income/income.component';
 import { IncomeDetailComponent } from './components/income-detail/income-detail.component';
 import { MaterialModule } from '../../material/material.module';
-import { SharedModule } from '../../shared/shared.module';
- 
+
 @NgModule({
   declarations: [
     IncomeComponent,
@@ -15,8 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     IncomeRoutingModule,
-    MaterialModule,
-    SharedModule
+    MaterialModule
   ]
 })
 export class IncomeModule { }

@@ -10,6 +10,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
 // import { MatBadgeModule } from '@angular/material/badge';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,6 +40,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSelectModule,
     MatCheckboxModule,
     MatListModule,
+    MatTableModule,
     // MatBadgeModule,
     // MatCardModule,
     // MatInputModule,
@@ -67,6 +69,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSelectModule,
     MatCheckboxModule,
     MatListModule,
+    MatTableModule,
     // MatBadgeModule,
     // MatCardModule,
     // MatInputModule,
