@@ -1,0 +1,42 @@
+.title-income-detail {
+    text-align: center;
+}
+
+.row-income-detail{
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    // height: 50px;
+}
+
+.label-income-detail {
+    width: 200px;
+    // background-color: red;
+    height: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.input-income-detail {
+    width: 300px;
+    // background-color: blue;
+    height: 400%;
+}
+
+mat-dialog-content {
+    height: 280px;
+}
+
+//Change color mat-slide-toggle
+// .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+//     // background-color: #ff4081;
+//     background-color: #3f51b5;
+// }
+
+// .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+//     // background-color: rgba(255,64,129,.54);
+//     background-color: rgba(63,81,181,.54);
+// }

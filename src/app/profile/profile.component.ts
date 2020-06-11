@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/services/auth.service';
 import { mergeMap, catchError } from 'rxjs/operators';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-profile',

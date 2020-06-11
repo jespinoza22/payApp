@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomeDetailComponent implements OnInit {
 
+  isChecked: false;
+  
   constructor() { }
 
   ngOnInit(): void {
