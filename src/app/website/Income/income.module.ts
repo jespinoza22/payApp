@@ -5,7 +5,7 @@ import { IncomeRoutingModule } from './income-routing.module';
 import { IncomeComponent } from './components/income/income.component';
 import { IncomeDetailComponent } from './components/income-detail/income-detail.component';
 import { MaterialModule } from '../../material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     IncomeRoutingModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class IncomeModule { }

@@ -27,6 +27,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // import { MatSortModule } from '@angular/material/sort';
 // import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
 // import { LayoutModule } from '@angular/cdk/layout';
 // import { MatPaginatorModule } from '@angular/material/paginator';
 // import { MatStepperModule } from '@angular/material/stepper';
@@ -49,6 +50,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    FormsModule,
     // MatBadgeModule,
     // MatCardModule,
     // MatInputModule,
@@ -82,6 +84,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    FormsModule,
     // MatBadgeModule,
     // MatCardModule,
     // MatInputModule,
