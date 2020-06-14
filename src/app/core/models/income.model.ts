@@ -6,4 +6,5 @@ export interface Income {
     DateApply: Date;
     Amount: number;
     IdCard: string;
+    IdMoneda: string;
 }

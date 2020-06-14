@@ -25,5 +25,4 @@ export class ProfileComponent implements OnInit {
   pingApi() {
     this.api.ping$();
   }
-
 }

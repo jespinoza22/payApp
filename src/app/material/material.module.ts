@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule  } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 // import { MatBadgeModule } from '@angular/material/badge';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,7 +27,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 // import { MatListModule } from '@angular/material/list';
 // import { MatGridListModule } from '@angular/material/grid-list';
 // import { MatSortModule } from '@angular/material/sort';
-// import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 // import { LayoutModule } from '@angular/cdk/layout';
@@ -51,8 +53,10 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatSlideToggleModule,
     FormsModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
     // MatBadgeModule,
-    // MatCardModule,
+    MatCardModule,
     // MatInputModule,
     // MatSelectModule,
     // MatRadioModule,
@@ -85,8 +89,10 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatSlideToggleModule,
     FormsModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
     // MatBadgeModule,
-    // MatCardModule,
+    MatCardModule,
     // MatInputModule,
     // MatSelectModule,
     // MatRadioModule,

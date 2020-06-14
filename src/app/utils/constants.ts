@@ -8,9 +8,16 @@ interface Year {
     name: string;
 }
 
+interface Moneda {
+  value: string;
+  name: string;
+  symbol: string;
+}
+
 export class Constants{
 
     static months: Month[] = [
+        {value: '00', name: 'Todos'},
         {value: '01', name: 'Enero'},
         {value: '02', name: 'Febrero'},
         {value: '03', name: 'Marzo'},
@@ -26,6 +33,7 @@ export class Constants{
       ];
 
     static  years: Year[] = [
+        {value: '0000', name: 'Todos'},
         {value: '2015', name: '2015'},
         {value: '2016', name: '2016'},
         {value: '2017', name: '2017'},
@@ -40,4 +48,11 @@ export class Constants{
         {value: '2026', name: '2026'},
         {value: '2027', name: '2027'},
       ];
+
+    static monedas: Moneda[] = [
+      { value: '01', name: 'Soles', symbol: 'S/.' },
+      { value: '02', name: 'Dolares', symbol: '$' }
+    ];
+
+    static pageSizes: number[] = [ 5, 10, 25, 100];
 }

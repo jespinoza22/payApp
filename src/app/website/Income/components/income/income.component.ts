@@ -1,30 +1,11 @@
+import { Income } from './../../../../core/models/income.model';
 import { Component, OnInit } from '@angular/core';
 import { IncomeDetailComponent } from '../income-detail/income-detail.component';
 import { Constants } from '../../../../utils/constants';
 import { MatDialog } from '@angular/material/dialog';
-// import { MatDialog, MatDialogModule, MatDialogRef  } from '@angular/material/dialog';
-
-interface Year {
-  value: string;
-  name: string;
-}
-
-export interface Data {
-  description: string;
-  position: number;
-  fechaR: string;
-  fechaA: string;
-  monto: number;
-  id: string;
-}
-
-const ELEMENT_DATA: Data[] = [
-  {position: 1, description: 'Ingreso 1', fechaR: '04/06/2020', fechaA: '09/06/2020', monto: 1500, id: '1'},
-  {position: 2, description: 'Ingreso 2', fechaR: '05/06/2020', fechaA: '09/06/2020', monto: 1600, id: '2'},
-  {position: 3, description: 'Ingreso 3', fechaR: '06/06/2020', fechaA: '09/06/2020', monto: 1700, id: '3'},
-  {position: 4, description: 'Ingreso 4', fechaR: '07/06/2020', fechaA: '09/06/2020', monto: 1800, id: '4'},
-  {position: 5, description: 'Ingreso 15', fechaR: '09/06/2020', fechaA: '09/06/2020', monto: 1900, id: '5'}
-];
+import { IncomesService } from '../../../../core/services/incomes/incomes.service';
+import { PageEvent } from '@angular/material/paginator';
+// import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-income',
@@ -33,17 +14,28 @@ const ELEMENT_DATA: Data[] = [
 })
 export class IncomeComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'description', 'fechaR', 'fechaA', 'monto', 'id'];
-  dataSource = ELEMENT_DATA;
-
+  displayedColumns: string[] = ['description', 'dateCreation', 'dateApply', 'moneda', 'amount', 'idUser'];
+  dataSource: Income[];
+  dataObject: Income[];
   months: any;
   years: any;
+  monedas: any;
+  lenghTable: number;
+  defaultSizePage: number;
+  arraySizes: number[];
+  pageEvent: PageEvent;
+
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private service: IncomesService
   ) {
     this.months = Constants.months;
     this.years = Constants.years;
+    this.monedas = Constants.monedas;
+    this.defaultSizePage = Constants.pageSizes[0];
+    this.arraySizes = Constants.pageSizes;
+    this.getAllIncomes();
    }
 
   ngOnInit(): void {
@@ -54,9 +46,41 @@ export class IncomeComponent implements OnInit {
     const dialogRef = this.dialog.open(IncomeDetailComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getAllIncomes();
     });
   }
 
+  delete(element: any){
+    console.log(element);
+    if (confirm(`Esta seguro de eliminar el elemento "${element.description}"`)) {
+      this.service.deleteIncome(element.idIncome)
+      .subscribe(result => {
+        if (result != null){
+          console.log(result);
+          this.getAllIncomes();
+          alert(`Se elimino el elemento correctamente`);
+        }
+      });
+    }
+  }
 
+  getAllIncomes(){
+    this.service.getAllIncome().subscribe(result => {
+      this.dataObject = result;
+      this.dataSource = result;
+      this.lenghTable = result.length;
+      console.log(result, 'result');
+      const nuevoArray = this.dataObject.filter((item, index) => {
+        return ( index >= 0 && index <= this.defaultSizePage - 1);
+      });
+      this.dataSource = nuevoArray;
+    });
+  }
+
+  public getServerData(event?: PageEvent): any{
+    const nuevoArray = this.dataObject.filter((item, index) => {
+      return ( index >= (event.pageIndex * event.pageSize) && index <= (event.pageSize * (event.pageIndex + 1) - 1));
+    });
+    this.dataSource = nuevoArray;
+  }
 }
