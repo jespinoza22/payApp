@@ -17,6 +17,7 @@ import { MatNativeDateModule  } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 // import { MatBadgeModule } from '@angular/material/badge';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,6 +56,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatProgressBarModule,
     MatPaginatorModule,
+    MatTooltipModule,
     // MatBadgeModule,
     MatCardModule,
     // MatInputModule,
@@ -91,6 +93,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatProgressBarModule,
     MatPaginatorModule,
+    MatTooltipModule,
     // MatBadgeModule,
     MatCardModule,
     // MatInputModule,

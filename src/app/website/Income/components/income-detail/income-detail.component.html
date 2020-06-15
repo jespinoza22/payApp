@@ -56,10 +56,10 @@
         <div class="input-income-detail">
           <mat-form-field>
             <mat-label>Seleccione</mat-label> 
-            <mat-select>
-              <!-- <mat-option *ngFor="let year of years" [value]="year.value">
-                {{year.name}}
-              </mat-option> -->
+            <mat-select formControlName="IdCard">
+              <mat-option *ngFor="let card of cards" [value]="card.idCard">
+                {{ card.description }}
+              </mat-option>
             </mat-select>
         </mat-form-field>
         </div>

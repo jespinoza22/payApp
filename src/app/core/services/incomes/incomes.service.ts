@@ -18,12 +18,13 @@ export class IncomesService {
 
   }
 
-  getAllIncome() {
+  getIncome(id: string = '', year: number = 0, month: number = 0,
+            amount: number = 0, description: string = '') {
     const userId = this.auth.userProfile.sub;
-    console.log('userId', userId);
-    console.log('url', `${environment.url_api}income?idUser=${userId}`);
+    amount = amount == null ? 0 : amount;
+    console.log(amount, 'amount');
     return this.http
-    .get<Income[]>(`${environment.url_api}income?idUser=${userId}`);
+    .get<Income[]>(`${environment.url_api}income?idUser=${userId}&id=${id}&month=${month}&year=${year}&amount=${amount}&description=${description}`);
     // .subscribe(
     //   data => console.log('success', data),
     //   error => console.log('error', error)

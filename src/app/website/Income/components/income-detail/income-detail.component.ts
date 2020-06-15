@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { IncomesService } from 'src/app/core/services/incomes/incomes.service';
+import { CardsService } from '../../../../core/services/cards/cards.service';
 import { Constants } from '../../../../utils/constants';
 
 @Component({
@@ -13,14 +14,20 @@ export class IncomeDetailComponent implements OnInit {
 
   form: FormGroup;
   monedas: any;
+  cards: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<IncomeDetailComponent>,
-    private service: IncomesService
+    private service: IncomesService,
+    private cardService: CardsService
   ) {
     this.buildForm();
     this.monedas = Constants.monedas;
+    cardService.getCard().subscribe(result => {
+      this.cards = result;
+      console.log(this.cards, 'this.cards');
+    });
    }
 
   ngOnInit(): void {

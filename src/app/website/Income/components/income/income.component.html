@@ -10,7 +10,7 @@
             <div class="income-input">
                 <mat-form-field>
                     <mat-label>Todos</mat-label>
-                    <mat-select>
+                    <mat-select [(ngModel)]="yearFitler">
                       <mat-option *ngFor="let year of years" [value]="year.value">
                         {{year.name}}
                       </mat-option>
@@ -24,7 +24,7 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
-                    <input matInput >
+                    <input matInput [(ngModel)]="descriptionFilter">
                 </mat-form-field>             
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="income-input">
                 <mat-form-field>
                     <mat-label>Todos</mat-label>
-                    <mat-select>
+                    <mat-select [(ngModel)]="monthFilter">
                       <mat-option *ngFor="let month of months" [value]="month.value">
                         {{month.name}}
                       </mat-option>
@@ -51,21 +51,22 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
-                    <input matInput >
+                    <input matInput type="number" [(ngModel)]="amountMaxFilter" >
                 </mat-form-field>      
             </div>
         </div>
     </div>
-    <button mat-raised-button color="primary">Consultar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="getIncomes()">Consultar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button mat-raised-button color="primary" (click)="openDialog()">Nuevo</button>
     <!-- <button mat-raised-button>Nuevo</button> -->
-</div>
+</div> 
 
 <div class="table-information">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- description Column -->
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+          <!-- <mat-cell *matCellDef="let element" [matTooltip] = "element | json"> {{element.description}} </mat-cell> -->
           <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
         </ng-container>
       
@@ -100,7 +101,7 @@
         </ng-container>
       
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
       </mat-table>
       <mat-paginator [length]="lenghTable"
               [pageSize]="defaultSizePage"

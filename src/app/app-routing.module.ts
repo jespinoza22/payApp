@@ -23,6 +23,12 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: () => import('./website/Income/income.module').then(m => m.IncomeModule),
         data: { preload: true }
+      },
+      {
+        path: 'card',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./website/Card/card.module').then(m => m.CardModule),
+        data: { preload: true }
       }
     ]
   },

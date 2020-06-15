@@ -17,7 +17,7 @@ interface Moneda {
 export class Constants{
 
     static months: Month[] = [
-        {value: '00', name: 'Todos'},
+        {value: '0', name: 'Todos'},
         {value: '01', name: 'Enero'},
         {value: '02', name: 'Febrero'},
         {value: '03', name: 'Marzo'},
@@ -33,7 +33,7 @@ export class Constants{
       ];
 
     static  years: Year[] = [
-        {value: '0000', name: 'Todos'},
+        {value: '0', name: 'Todos'},
         {value: '2015', name: '2015'},
         {value: '2016', name: '2016'},
         {value: '2017', name: '2017'},

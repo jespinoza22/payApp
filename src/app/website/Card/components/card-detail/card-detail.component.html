@@ -1,0 +1,51 @@
+
+  <div class="title-card-detail">
+    <h2 mat-dialog-title>Nueva Tarjeta</h2>
+  </div>  
+  <form [formGroup]="form" novalidate (ngSubmit)="saveCard($event)">
+  <mat-dialog-content class="mat-typography">
+    <div class="content-card">
+      <div class="row-card-detail">
+        <div class="label-card-detail">
+          <label for="">Descripción :</label>
+        </div>
+        <div class="input-card-detail">
+          <mat-form-field class="example-full-width">
+            <input formControlName="Description" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row-card-detail">
+        <div class="label-card-detail">
+          <label for="">Moneda :</label>
+        </div>
+        <div class="input-card-detail">
+          <mat-form-field>
+            <mat-label>Seleccione</mat-label> 
+            <mat-select formControlName="IdMoneda">
+              <mat-option *ngFor="let moneda of monedas" [value]="moneda.value">
+                {{ '(' + moneda.symbol + ')  ' + moneda.name }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+      <div class="row-card-detail">
+        <div class="label-card-detail">
+          <label for="">Número Tarjeta :</label>
+        </div>
+        <div class="input-card-detail">
+          <mat-form-field class="example-full-width">
+            <input formControlName="CardNumber" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>    
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Cancelar</button>
+  </mat-dialog-actions>
+  <br>
+</form>
+

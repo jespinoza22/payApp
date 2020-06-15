@@ -1,5 +1,5 @@
 import { Income } from './../../../../core/models/income.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IncomeDetailComponent } from '../income-detail/income-detail.component';
 import { Constants } from '../../../../utils/constants';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,6 +24,10 @@ export class IncomeComponent implements OnInit {
   defaultSizePage: number;
   arraySizes: number[];
   pageEvent: PageEvent;
+  descriptionFilter: string;
+  amountMaxFilter: number;
+  yearFitler: number;
+  monthFilter: number;
 
 
   constructor(
@@ -35,7 +39,7 @@ export class IncomeComponent implements OnInit {
     this.monedas = Constants.monedas;
     this.defaultSizePage = Constants.pageSizes[0];
     this.arraySizes = Constants.pageSizes;
-    this.getAllIncomes();
+    this.getIncomes();
    }
 
   ngOnInit(): void {
@@ -46,7 +50,7 @@ export class IncomeComponent implements OnInit {
     const dialogRef = this.dialog.open(IncomeDetailComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getAllIncomes();
+      this.getIncomes();
     });
   }
 
@@ -57,15 +61,15 @@ export class IncomeComponent implements OnInit {
       .subscribe(result => {
         if (result != null){
           console.log(result);
-          this.getAllIncomes();
+          this.getIncomes();
           alert(`Se elimino el elemento correctamente`);
         }
       });
     }
   }
 
-  getAllIncomes(){
-    this.service.getAllIncome().subscribe(result => {
+  getIncomes(){
+    this.service.getIncome('', this.yearFitler, this.monthFilter, this.amountMaxFilter, this.descriptionFilter).subscribe(result => {
       this.dataObject = result;
       this.dataSource = result;
       this.lenghTable = result.length;
