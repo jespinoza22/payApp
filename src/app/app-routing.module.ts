@@ -29,6 +29,18 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: () => import('./website/Card/card.module').then(m => m.CardModule),
         data: { preload: true }
+      },
+      {
+        path: 'expense',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./website/Expense/expense.module').then(m => m.ExpenseModule),
+        data: { preload: true }
+      },
+      {
+        path: 'resume',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./website/Resume/resume.module').then(m => m.ResumeModule),
+        data: { preload: true }
       }
     ]
   },

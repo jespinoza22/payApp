@@ -1,0 +1,79 @@
+.title-child {
+    width: 100%;
+    text-align: center;
+}
+
+.title-child h2{
+    font-family: sans-serif;
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.expense-container {
+    width: 90%;
+    max-width: 800px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    margin: 15px auto 0;
+    text-align: center;
+    // padding-top: 20px;
+    // font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+}
+
+.expense-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.expense-filter {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+    // background-color: blue;
+    // border: 1px solid white;
+}
+
+.expense-label {
+    width: 35%;
+    text-align: right;
+    padding-right: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.expense-input{
+    width: 65%;
+    padding-left: 10px;
+}
+
+.expense-container button {
+    margin: 10px 0;
+}
+
+.table-information {
+    width: 100%;
+    text-align: center;
+}
+
+mat-table {
+    width: 800px;
+    max-width: 90%;
+    margin: 20px auto 0;
+}
+
+mat-paginator {
+    width: 800px;
+    max-width: 90%;
+    margin: 0 auto 10px;
+}
+
+.mat-column-idExpense {
+    flex: 0 0 50px;
+}
+
+.icon-delete {
+    cursor: pointer;
+}

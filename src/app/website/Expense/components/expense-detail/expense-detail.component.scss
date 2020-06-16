@@ -1,0 +1,31 @@
+.title-expense-detail {
+    text-align: center;
+}
+
+.row-expense-detail{
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    // height: 50px;
+}
+
+.label-expense-detail {
+    width: 200px;
+    // background-color: red;
+    height: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.input-expense-detail {
+    width: 300px;
+    // background-color: blue;
+    height: 400%;
+}
+
+mat-dialog-content {
+    height: 290px;
+}

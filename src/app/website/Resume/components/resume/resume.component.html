@@ -1,0 +1,40 @@
+<p>resume works!</p>
+
+<div class="title-child">
+    <h2>Ingresos</h2>
+</div>
+
+<div class="filter">
+    <div class="resume-filter">
+        <div class="resume-label">
+            <label for="">Año:</label>
+        </div>
+        <div class="resume-input">
+            <mat-form-field>
+                <mat-label>Todos</mat-label>
+                <mat-select [(ngModel)]="yearFitler" [(value)]="selectedYear">
+                  <mat-option *ngFor="let year of years" [value]="year.value">
+                    {{year.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div class="table-chart">
+
+    <div class="chart-wrapper">
+        <canvas baseChart 
+            [datasets]="lineChartData" 
+            [labels]="lineChartLabels" 
+            [options]="lineChartOptions"
+            [colors]="lineChartColors" 
+            [legend]="lineChartLegend" 
+            [chartType]="lineChartType" 
+            [plugins]="lineChartPlugins">
+        </canvas>
+    </div>
+</div>
+
+

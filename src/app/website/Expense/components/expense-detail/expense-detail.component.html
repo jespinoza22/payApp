@@ -1,0 +1,83 @@
+
+  <div class="title-expense-detail">
+    <h2 mat-dialog-title>Nuevo Egreso</h2>
+  </div>  
+  <!-- <form [formGroup]="form" novalidate (ngSubmit)="saveProduct($event)" [ngModelOptions]="{standalone: true}"> -->
+  <form [formGroup]="form" novalidate (ngSubmit)="saveExpense($event)">
+  <mat-dialog-content class="mat-typography">
+    <div class="content-expense">
+      <div class="row-expense-detail">
+        <div class="label-expense-detail">
+          <label for="">Descripción :</label>
+        </div>
+        <div class="input-expense-detail">
+          <mat-form-field class="example-full-width">
+            <input formControlName="Description" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row-expense-detail">
+        <div class="label-expense-detail">
+          <label for="">Fecha Aplicación :</label>
+        </div>
+        <div class="input-expense-detail">
+          <mat-form-field class="example-full-width">
+            <mat-label>Seleccione una fecha</mat-label>
+            <input matInput formControlName="DateApply" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row-expense-detail">
+        <div class="label-expense-detail">
+          <label for="">Monto :</label>
+        </div>
+        <div class="input-expense-detail">
+          <mat-form-field class="example-full-width">
+            <input type="number" formControlName="Amount" matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row-expense-detail">
+        <div class="label-expense-detail">
+          <label for="">Tarjeta :</label>
+        </div>
+        <div class="input-expense-detail">
+          <mat-form-field>
+            <mat-label>Seleccione</mat-label> 
+            <mat-select formControlName="IdCard">
+              <mat-option *ngFor="let card of cards" [value]="card.idCard">
+                {{ card.description }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+      <div class="row-expense-detail">
+        <div class="label-expense-detail">
+          <label for="">Moneda :</label>
+        </div>
+        <div class="input-expense-detail">
+          <mat-form-field>
+            <mat-label>Seleccione</mat-label> 
+            <mat-select formControlName="IdMoneda">
+              <mat-option *ngFor="let moneda of monedas" [value]="moneda.value">
+                {{ '(' + moneda.symbol + ')  ' + moneda.name }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+    </div>    
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Guardar</button> -->
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Cancelar</button>
+  </mat-dialog-actions>
+  <br>
+</form>
+
