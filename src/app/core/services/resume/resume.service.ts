@@ -19,4 +19,10 @@ export class ResumeService {
     return this.http
     .get<Resume[]>(`${environment.url_api}resume?idUser=${userId}&&year=${year}`);
   }
+
+  getResumeTotal(){
+    const userId = this.auth.userProfile.sub;
+    return this.http
+    .get<any>(`${environment.url_api}resumetotal?idUser=${userId}`);
+  }
 }

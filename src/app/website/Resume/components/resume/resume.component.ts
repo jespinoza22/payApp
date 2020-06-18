@@ -3,6 +3,10 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { Constants } from 'src/app/utils/constants';
 import { ResumeService } from '../../../../core/services/resume/resume.service';
+import { Resume } from 'src/app/core/models/resume.model';
+import { DecimalPipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { ResumeDetailComponent } from '../resume-detail/resume-detail.component';
 
 @Component({
   selector: 'app-resume',
@@ -11,54 +15,65 @@ import { ResumeService } from '../../../../core/services/resume/resume.service';
 })
 export class ResumeComponent implements OnInit {
 
+  displayedColumns: string[] = ['date', 'incomeSoles', 'incomeDolares', 'expenseSoles',
+                                'expenseDolares', 'totalSoles', 'totalDolares'];
+  dataSource: Resume[];
   years: any;
   yearFitler: number;
-  selectedYear: number;
-  dataIncome: any;
+  labelYear: string;
+  labelTotalYearSoles: string;
+  labelTotalYearDolares: string;
+  labelTotalSoles: string;
+  labelTotalDolares: string;
 
-  lineChartData: ChartDataSets[] = [
-    {
-      data: [0],
-      label: 'Ingresos'
-    },
-    {
-      data: [0],
-      label: 'Egresoss'
-    },
-  ];
-
-  lineChartLabels: Label[];
-
-  lineChartOptions = {
-    responsive: true,
+  chartOptions = {
+    responsive: true
   };
 
-  lineChartColors: Color[] = [
+  chartDataSoles = [
+    { data: [], label: 'Ingresos - (S/.)' },
+    { data: [], label: 'Egresos - (S/.)' }
+  ];
+
+  chartDataDolares = [
+    { data: [], label: 'Ingresos - ($)' },
+    { data: [], label: 'Egresos - ($)' }
+  ];
+
+  chartLabels = [];
+
+  myColors = [
     {
-      borderColor: 'blue',
-      backgroundColor: 'Transparent',//'rgba(255,255,0,0.28)',
+      backgroundColor: 'transparent',
+      borderColor: 'rgb(49, 76, 229)',
+      pointBackgroundColor: 'rgb(49, 76, 229)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(49, 76, 229, .8)'
     },
     {
-      borderColor: 'red',
-      backgroundColor: 'Transparent',//'rgba(255,255,0,0.28)',
+      backgroundColor: 'transparent',
+      borderColor: 'rgb(232, 79, 79)',
+      pointBackgroundColor: 'rgb(232, 79, 79)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(232, 79, 79, .8)'
     },
   ];
 
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType = 'line';
-
-
   constructor(
-    private service: ResumeService
+    private service: ResumeService,
+    private decPipe: DecimalPipe,
+    public dialog: MatDialog,
   ) {
     this.years = Constants.years;
-    this.selectedYear = (new Date()).getFullYear();
-    this.yearFitler = this.selectedYear;
-    this.lineChartLabels = Constants.months.map(x => x.name);
-    this.lineChartData.length = 1;
+    this.yearFitler = (new Date()).getFullYear();
+    this.chartLabels = Constants.months.map(x => x.name);
     this.getResume();
-    console.log(this.lineChartData, 'lineChartData');
+    this.service.getResumeTotal().subscribe(result => {
+      this.labelTotalSoles = result.totalSoles;
+      this.labelTotalDolares = result.totalDolares;
+    });
   }
 
   ngOnInit(): void {
@@ -66,30 +81,41 @@ export class ResumeComponent implements OnInit {
 
   getResume(){
     this.service.getResume(this.yearFitler).subscribe(result => {
-      this.dataIncome = result.map(x => x.income);
-      console.log(this.dataIncome, 'sum income');
-      console.log(result);
 
-      this.lineChartData[0] = Object.assign(this.lineChartData[0], {
-        data: result.map(x => x.income),
-        label: 'Ingresos'
+      this.chartDataSoles[0] = Object.assign(this.chartDataSoles[0], {
+        data: result.map(x => x.incomeSoles)
       });
 
-      this.lineChartData[2] = Object.assign(this.lineChartData[2], {
-        data: result.map(x => x.expense),
-        label: 'Egresos'
+      this.chartDataSoles[1] = Object.assign(this.chartDataSoles[1], {
+        data: result.map(x => x.expenseSoles)
       });
 
-      // this.lineChartColors[0] = Object.assign(this.lineChartColors[0], {
-      //   borderColor: 'black',
-      //   backgroundColor: 'rgba(255,255,0,0.28)',
-      // });
+      this.chartDataDolares[0] = Object.assign(this.chartDataDolares[0], {
+        data: result.map(x => x.incomeDolares)
+      });
 
-      // this.lineChartColors[1] = Object.assign(this.lineChartColors[1], {
-      //   borderColor: 'black',
-      //   backgroundColor: 'rgba(255,255,0,0.28)',
-      // });
+      this.chartDataDolares[1] = Object.assign(this.chartDataDolares[1], {
+        data: result.map(x => x.expenseDolares)
+      });
+
+      this.dataSource = result;
+      let sumTotalSoles = 0;
+      let sumTotalDolares = 0;
+      result.forEach(x => sumTotalSoles += x.totalSoles);
+      result.forEach(x => sumTotalDolares += x.totalDolares);
+      this.labelTotalYearSoles = this.decPipe.transform(sumTotalSoles, '1.2-2');
+      this.labelTotalYearDolares = this.decPipe.transform(sumTotalDolares, '1.2-2');
     });
   }
 
+  selectMonthDetail(value: any){
+    this.dialog.open(ResumeDetailComponent, {
+      width: '60%',
+      height: '85%',
+      data: {
+        yearDetail: value.year,
+        monthDetail: value.month
+      }
+    });
+  }
 }

@@ -1,0 +1,36 @@
+<mat-dialog-content>
+    <div class="content">
+        <div class="table-chart">
+            <div class="chart-wrapper">
+                Soles {{month | month}} - {{year}} : &nbsp;&nbsp;&nbsp;
+                <label class="labelTotalYear">S/. {{totalMesSoles | number : '1.2-2'}}</label>
+                <canvas
+                baseChart
+                [chartType]="'line'"
+                [datasets]="chartDataSoles"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [colors]="myColors"
+                [legend]="true">
+                </canvas>
+            </div><br><br>
+            <div class="chart-wrapper">
+                Dolares {{month | month}} - {{year}} : &nbsp;&nbsp;&nbsp;
+                <label class="labelTotalYear">$ {{totalMesDolares | number : '1.2-2'}}</label>
+                <canvas
+                baseChart
+                [chartType]="'line'"
+                [datasets]="chartDataDolares"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [colors]="myColors"
+                [legend]="true">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center" class="footer">
+    <button mat-raised-button color="primary" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>
+

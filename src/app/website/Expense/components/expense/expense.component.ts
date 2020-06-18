@@ -32,8 +32,8 @@ export class ExpenseComponent implements OnInit {
     public dialog: MatDialog,
     private service: ExpensesService
   ) {
-    this.months = Constants.months;
-    this.years = Constants.years;
+    this.months = [ {value: 0, name: 'Todos'}, ...Constants.months];
+    this.years = [ {value: 0, name: 'Todos'}, ...Constants.years];
     this.monedas = Constants.monedas;
     this.defaultSizePage = Constants.pageSizes[0];
     this.arraySizes = Constants.pageSizes;

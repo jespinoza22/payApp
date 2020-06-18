@@ -1,7 +1,10 @@
 export interface Resume {
     month: number;
     year: number;
-    income: number;
-    expense: number;
-    total: number;
+    incomeSoles: number;
+    incomeDolares: number;
+    expenseSoles: number;
+    expenseDolares: number;
+    totalSoles: number;
+    totalDolares: number;
 }

@@ -1,18 +1,15 @@
-<p>resume works!</p>
-
 <div class="title-child">
-    <h2>Ingresos</h2>
+    <h2>Resumen</h2>
 </div>
 
-<div class="filter">
+<div class="row">
     <div class="resume-filter">
         <div class="resume-label">
             <label for="">Año:</label>
         </div>
         <div class="resume-input">
             <mat-form-field>
-                <mat-label>Todos</mat-label>
-                <mat-select [(ngModel)]="yearFitler" [(value)]="selectedYear">
+                <mat-select [(ngModel)]="yearFitler" (selectionChange)="getResume()" >
                   <mat-option *ngFor="let year of years" [value]="year.value">
                     {{year.name}}
                   </mat-option>
@@ -20,21 +17,95 @@
             </mat-form-field>
         </div>
     </div>
-</div>
-
-<div class="table-chart">
-
-    <div class="chart-wrapper">
-        <canvas baseChart 
-            [datasets]="lineChartData" 
-            [labels]="lineChartLabels" 
-            [options]="lineChartOptions"
-            [colors]="lineChartColors" 
-            [legend]="lineChartLegend" 
-            [chartType]="lineChartType" 
-            [plugins]="lineChartPlugins">
-        </canvas>
+    <div class="resume-total">
+        <div class="total-soles">
+            <strong>Total Soles (S/.) : </strong>
+            <label class="labelMoneda">{{labelTotalSoles | number : '1.2-2'}}</label>
+        </div>
+        <div class="total-dolares">
+            <strong>Total Dolares ($) : </strong>
+            <label class="labelMoneda">{{labelTotalDolares | number : '1.2-2'}}</label>
+        </div>
     </div>
 </div>
 
+<div class="info">
+    <div class="table-information">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- description Column -->
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+              <!-- <mat-cell *matCellDef="let element" [matTooltip] = "element | json"> {{element.description}} </mat-cell> -->
+              <mat-cell *matCellDef="let element"> <a (click)="selectMonthDetail(element)" class="table-month">{{element.month | month}} {{element.year}}</a> </mat-cell>
+            </ng-container>
+          
+            <!-- fechaR Column -->
+            <ng-container matColumnDef="incomeSoles">
+              <mat-header-cell *matHeaderCellDef> Ingresos Soles</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.incomeSoles | number : '1.2-2'}} </mat-cell>
+            </ng-container>
+          
+            <!-- fechaR Column -->
+            <ng-container matColumnDef="incomeDolares">
+                <mat-header-cell *matHeaderCellDef> Ingresos Dolares</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.incomeDolares | number : '1.2-2'}} </mat-cell>
+              </ng-container>
 
+            <!-- fechaA Column -->
+            <ng-container matColumnDef="expenseSoles">
+              <mat-header-cell *matHeaderCellDef> Egresos Soles</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.expenseSoles | number : '1.2-2'}} </mat-cell>
+            </ng-container>
+
+             <!-- fechaA Column -->
+             <ng-container matColumnDef="expenseDolares">
+                <mat-header-cell *matHeaderCellDef> Egresos Dolares</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.expenseDolares | number : '1.2-2'}} </mat-cell>
+              </ng-container>
+    
+            <!-- Moneda Column -->
+            <ng-container matColumnDef="totalSoles">
+                <mat-header-cell *matHeaderCellDef> Total Soles</mat-header-cell> 
+                <mat-cell *matCellDef="let element"> {{ element.totalSoles | number : '1.2-2'}} </mat-cell>
+            </ng-container>
+
+            <!-- Moneda Column -->
+            <ng-container matColumnDef="totalDolares">
+                <mat-header-cell *matHeaderCellDef> Total Dolares</mat-header-cell> 
+                <mat-cell *matCellDef="let element"> {{ element.totalDolares | number : '1.2-2'}} </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+          </mat-table>
+    </div>
+    
+    <div class="table-chart">
+        <div class="chart-wrapper">
+            Soles {{this.yearFitler.toString()}} : &nbsp;&nbsp;&nbsp;
+            <label class="labelTotalYear">{{labelTotalYearSoles}}</label>
+            <canvas
+            baseChart
+            [chartType]="'line'"
+            [datasets]="chartDataSoles"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [colors]="myColors"
+            [legend]="true">
+            </canvas>
+        </div><br><br>
+        <div class="chart-wrapper">
+            Dolares {{this.yearFitler.toString()}} : &nbsp;&nbsp;&nbsp;
+            <label class="labelTotalYear">{{labelTotalYearDolares}}</label>
+            <canvas
+            baseChart
+            [chartType]="'line'"
+            [datasets]="chartDataDolares"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [colors]="myColors"
+            [legend]="true">
+            </canvas>
+        </div>
+    </div>
+</div>
