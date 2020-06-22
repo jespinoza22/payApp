@@ -21,7 +21,7 @@ export class AuthService {
   auth0: Auth0Client = new Auth0Client({
       domain: 'dev-wjxvxmxl.auth0.com',
       client_id: 'NRGNxmLKD9w7dpY5V0P63zP3PQ10d0G9',
-      redirect_uri: `${window.location.origin}/`,
+      redirect_uri: `${window.location.origin}/site`,
       audience: 'https://payApplication.com/api',
       response_type: 'openid token',
       scope: 'read:messages'
@@ -59,7 +59,7 @@ export class AuthService {
 
   async login(redirectPath: string = '/') {
     this.auth0.loginWithRedirect({
-      redirect_uri: `${window.location.origin}/`,
+      redirect_uri: `${window.location.origin}/site`,
       // appState: { target: redirectPath }
     }).then(token => {
       this.auth0.getUser().then(user => {
@@ -72,11 +72,23 @@ export class AuthService {
   logout() {
     this.auth0.logout({
       client_id: 'NRGNxmLKD9w7dpY5V0P63zP3PQ10d0G9',
-      returnTo: `${window.location.origin}`
+      returnTo: `${window.location.origin}/home`
     });
   }
 
   getTokenSilently(options?) {
     return this.auth0.getTokenSilently();
+  }
+
+  async loginPass(){
+    this.auth0.loginWithRedirect({
+      redirect_uri: `${window.location.origin}/site`,
+      login_hint: 'demo@gmail.com'
+    }).then(token => {
+      this.auth0.getUser().then(user => {
+        console.log(user, 'user');
+      });
+      console.log(token, 'token');
+    });
   }
 }

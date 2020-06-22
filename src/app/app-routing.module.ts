@@ -9,15 +9,15 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'site',
     component: LayoutComponent,
     // canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-       },
+      // {
+      //   path: '',
+      //   redirectTo: 'home',
+      //   pathMatch: 'full',
+      //  },
       {
         path: 'income',
         canActivate: [AuthGuard],
@@ -44,11 +44,11 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: '',
-  //   component: LayoutComponent,
-  //   canActivate: [AuthGuard]
-  // }
+  {
+    path: 'home',
+    component: HomeComponent,
+    // canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

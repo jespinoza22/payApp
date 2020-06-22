@@ -1,0 +1,32 @@
+.home-container {
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.home-container h1 {
+    font-size: 3em;
+}
+
+.home-container p {
+    width: 500px;
+    text-align: justify;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons a {
+    cursor: pointer;
+    border: 1px solid #007bff;
+    color: #007bff;;
+    border-radius: 5px;
+    width: 100px;
+    margin: 5px;
+    padding: 10px 30px;
+    
+}
