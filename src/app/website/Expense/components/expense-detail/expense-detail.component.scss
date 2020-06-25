@@ -29,3 +29,26 @@
 mat-dialog-content {
     height: 290px;
 }
+
+.placeholderInput {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .label-expense-detail {
+        display: none;
+    }
+
+    .input-expense-detail {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .placeholderInput {
+        display: block;
+    }
+
+    .placeholderSeleccione {
+        display: none;
+    }
+}

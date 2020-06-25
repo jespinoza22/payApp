@@ -11,6 +11,7 @@
         </div>
         <div class="input-card-detail">
           <mat-form-field class="example-full-width">
+            <mat-label class="placeholderInput">Descripcion</mat-label>
             <input formControlName="Description" matInput>
           </mat-form-field>
         </div>
@@ -21,7 +22,8 @@
         </div>
         <div class="input-card-detail">
           <mat-form-field>
-            <mat-label>Seleccione</mat-label> 
+            <mat-label class="placeholderSeleccione">Seleccione</mat-label> 
+            <mat-label class="placeholderInput">Moneda</mat-label>
             <mat-select formControlName="IdMoneda">
               <mat-option *ngFor="let moneda of monedas" [value]="moneda.value">
                 {{ '(' + moneda.symbol + ')  ' + moneda.name }}
@@ -36,6 +38,7 @@
         </div>
         <div class="input-card-detail">
           <mat-form-field class="example-full-width">
+            <mat-label class="placeholderInput">Número Tarjeta</mat-label>
             <input formControlName="CardNumber" matInput>
           </mat-form-field>
         </div>

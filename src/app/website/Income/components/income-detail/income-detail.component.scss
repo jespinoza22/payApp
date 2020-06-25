@@ -30,13 +30,25 @@ mat-dialog-content {
     height: 290px;
 }
 
-//Change color mat-slide-toggle
-// .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
-//     // background-color: #ff4081;
-//     background-color: #3f51b5;
-// }
+.placeholderInput {
+    display: none;
+}
 
-// .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-//     // background-color: rgba(255,64,129,.54);
-//     background-color: rgba(63,81,181,.54);
-// }
+@media (max-width: 768px) {
+    .label-income-detail {
+        display: none;
+    }
+
+    .input-income-detail {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .placeholderInput {
+        display: block;
+    }
+
+    .placeholderSeleccione {
+        display: none;
+    }
+}

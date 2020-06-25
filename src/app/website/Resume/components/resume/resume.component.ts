@@ -110,8 +110,9 @@ export class ResumeComponent implements OnInit {
 
   selectMonthDetail(value: any){
     this.dialog.open(ResumeDetailComponent, {
-      width: '60%',
+      width: '95%',
       height: '85%',
+      maxWidth: '900px',
       data: {
         yearDetail: value.year,
         monthDetail: value.month

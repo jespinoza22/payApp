@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   url_api: 'http://localhost:56019/api/'
+  // url_api: 'https://apipayapplication20200623225153.azurewebsites.net/api/'
 };
 
 /*

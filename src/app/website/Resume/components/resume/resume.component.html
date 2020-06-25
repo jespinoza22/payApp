@@ -9,6 +9,7 @@
         </div>
         <div class="resume-input">
             <mat-form-field>
+                <mat-label class="placeholderInput">Año</mat-label>
                 <mat-select [(ngModel)]="yearFitler" (selectionChange)="getResume()" >
                   <mat-option *ngFor="let year of years" [value]="year.value">
                     {{year.name}}
@@ -36,43 +37,43 @@
             <ng-container matColumnDef="date">
               <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
               <!-- <mat-cell *matCellDef="let element" [matTooltip] = "element | json"> {{element.description}} </mat-cell> -->
-              <mat-cell *matCellDef="let element"> <a (click)="selectMonthDetail(element)" class="table-month">{{element.month | month}} {{element.year}}</a> </mat-cell>
+              <mat-cell *matCellDef="let element"><span class="mobile-label">Fecha :</span> <a (click)="selectMonthDetail(element)" class="table-month">{{element.month | month}} {{element.year}}</a> </mat-cell>
             </ng-container>
           
             <!-- fechaR Column -->
             <ng-container matColumnDef="incomeSoles">
               <mat-header-cell *matHeaderCellDef> Ingresos Soles</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.incomeSoles | number : '1.2-2'}} </mat-cell>
+              <mat-cell *matCellDef="let element"><span class="mobile-label">Ingresos Soles :</span> {{element.incomeSoles | number : '1.2-2'}} </mat-cell>
             </ng-container>
           
             <!-- fechaR Column -->
             <ng-container matColumnDef="incomeDolares">
                 <mat-header-cell *matHeaderCellDef> Ingresos Dolares</mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.incomeDolares | number : '1.2-2'}} </mat-cell>
+                <mat-cell *matCellDef="let element"><span class="mobile-label">Ingresos Dolares :</span> {{element.incomeDolares | number : '1.2-2'}} </mat-cell>
               </ng-container>
 
             <!-- fechaA Column -->
             <ng-container matColumnDef="expenseSoles">
               <mat-header-cell *matHeaderCellDef> Egresos Soles</mat-header-cell>
-              <mat-cell *matCellDef="let element"> {{element.expenseSoles | number : '1.2-2'}} </mat-cell>
+              <mat-cell *matCellDef="let element"><span class="mobile-label">Egresos Soles :</span> {{element.expenseSoles | number : '1.2-2'}} </mat-cell>
             </ng-container>
 
              <!-- fechaA Column -->
              <ng-container matColumnDef="expenseDolares">
                 <mat-header-cell *matHeaderCellDef> Egresos Dolares</mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.expenseDolares | number : '1.2-2'}} </mat-cell>
+                <mat-cell *matCellDef="let element"><span class="mobile-label">Egresos Dolares :</span> {{element.expenseDolares | number : '1.2-2'}} </mat-cell>
               </ng-container>
     
             <!-- Moneda Column -->
             <ng-container matColumnDef="totalSoles">
                 <mat-header-cell *matHeaderCellDef> Total Soles</mat-header-cell> 
-                <mat-cell *matCellDef="let element"> {{ element.totalSoles | number : '1.2-2'}} </mat-cell>
+                <mat-cell *matCellDef="let element"><span class="mobile-label">Total Soles :</span> {{ element.totalSoles | number : '1.2-2'}} </mat-cell>
             </ng-container>
 
             <!-- Moneda Column -->
             <ng-container matColumnDef="totalDolares">
                 <mat-header-cell *matHeaderCellDef> Total Dolares</mat-header-cell> 
-                <mat-cell *matCellDef="let element"> {{ element.totalDolares | number : '1.2-2'}} </mat-cell>
+                <mat-cell *matCellDef="let element"><span class="mobile-label">Total Dolares :</span> {{ element.totalDolares | number : '1.2-2'}} </mat-cell>
             </ng-container>
           
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

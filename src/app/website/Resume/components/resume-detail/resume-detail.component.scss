@@ -13,3 +13,13 @@
     color: #007bff;
     font-size: 1.3em;
 }
+
+@media (max-width: 550px) { 
+    mat-dialog-content {
+        padding: 0;
+    }
+
+    .table-chart{
+        margin: 5px 5px;
+    }
+}

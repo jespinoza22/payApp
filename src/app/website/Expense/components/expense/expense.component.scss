@@ -77,3 +77,63 @@ mat-paginator {
 .icon-delete {
     cursor: pointer;
 }
+
+.mat-cell {
+    text-align: left;
+}
+
+.mobile-label {
+    display: none;
+}
+
+//responsive
+
+@media (max-width: 768px) {
+    .expense-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .expense-filter {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .expense-label label{
+        display: none;
+    }
+
+    .expense-label {
+        display: none;
+    }
+
+    .placeholderInput {
+        display: block;
+    }
+
+    .placeholderTodos {
+        display: none;
+    }
+
+    //table 
+    .mobile-label {
+        width: 90px;
+        display: inline-block;
+        font-weight: bold;  
+        text-align: left;          
+    }
+    .mat-header-row {
+        display: none;
+    }
+    
+    .mat-row { 
+      flex-direction: column;
+      align-items: start;
+      padding: 8px 24px;
+    }
+
+    .mat-cell {
+        padding: 0;
+    }
+}

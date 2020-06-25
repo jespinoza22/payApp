@@ -9,6 +9,7 @@
             </div>
             <div class="card-input">
                 <mat-form-field class="card-description">
+                    <mat-label class="placeholderInput">Descripcion</mat-label>
                     <input matInput [(ngModel)]="descriptionFilter">
                 </mat-form-field>             
             </div>
@@ -23,25 +24,25 @@
         <!-- description Column -->
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+          <mat-cell *matCellDef="let element"><span class="mobile-label">Descripción :</span> {{element.description}} </mat-cell>
         </ng-container>
       
         <!-- fechaR Column -->
         <ng-container matColumnDef="dateCreate">
           <mat-header-cell *matHeaderCellDef> F. Registro </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.dateCreate | date: 'dd/MM/yyyy'}} </mat-cell>
+          <mat-cell *matCellDef="let element"><span class="mobile-label">F. Registro :</span> {{element.dateCreate | date: 'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
 
         <!-- Moneda Column -->
         <ng-container matColumnDef="moneda">
             <mat-header-cell *matHeaderCellDef> Moneda </mat-header-cell> 
-            <mat-cell *matCellDef="let element"> {{ element.idMoneda | coin }} </mat-cell>
+            <mat-cell *matCellDef="let element"><span class="mobile-label">Moneda :</span> {{ element.idMoneda | coin }} </mat-cell>
         </ng-container>
 
         <!-- id Column -->
         <ng-container matColumnDef="idCard">
             <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
-            <mat-cell *matCellDef="let element"><mat-icon (click)="delete(element)"  class="icon-delete">delete</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let element"><span class="mobile-label">Eliminar :</span><mat-icon (click)="delete(element)"  class="icon-delete">delete</mat-icon></mat-cell>
         </ng-container>
       
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

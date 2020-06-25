@@ -10,7 +10,7 @@
 }
 
 .chart-wrapper {
-    width: 500px;
+    width: 100%;
     height: auto;
 }
 
@@ -65,4 +65,104 @@
 
 .labelTotalYear {
     color: #007bff;
+}
+
+.mobile-label {
+    display: none;
+}
+
+.placeholderInput {
+    display: none;
+}
+//RESPONSIVE
+
+@media (max-width: 1440px) {
+    .table-information {
+        width: 50%;
+    }
+    
+    .table-chart {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .table-information {
+        width: 80%;
+    }
+
+    .table-chart {
+        margin-top: 20px;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 769px) {
+    .row {
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .placeholderInput {
+        display: block;
+    }
+
+    .resume-label {
+        display: none;
+    }
+
+    .resume-filter {
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .resume-total {
+        flex-direction: column;
+    }
+
+    .labelMoneda {
+        font-size: 1.3em;
+    }
+
+    .total-soles {
+        padding: 10px 0;
+    }
+
+    //table 
+    .mobile-label {
+        width: 120px;
+        display: inline-block;
+        font-weight: bold;  
+        text-align: left;          
+    }
+    .mat-header-row {
+        display: none;
+    }
+    
+    .mat-row { 
+      flex-direction: column;
+      align-items: start;
+      padding: 8px 24px;
+    }
+
+    .mat-cell {
+        padding: 0;
+    }
+
+    //chart
+    .table-information {
+        width: 100%;
+    }
+
+    .table-chart {
+        width: 100%;
+        min-width: 300px;
+    }
 }

@@ -9,7 +9,8 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
-                    <mat-label>Todos</mat-label>
+                    <mat-label class="placeholderTodos">Todos</mat-label> 
+                    <mat-label class="placeholderInput">Año</mat-label>
                     <mat-select [(ngModel)]="yearFitler">
                       <mat-option *ngFor="let year of years" [value]="year.value">
                         {{year.name}}
@@ -24,6 +25,7 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
+                    <mat-label class="placeholderInput">Descripcion</mat-label>
                     <input matInput [(ngModel)]="descriptionFilter">
                 </mat-form-field>             
             </div>
@@ -36,7 +38,8 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
-                    <mat-label>Todos</mat-label>
+                    <mat-label class="placeholderTodos">Todos</mat-label> 
+                    <mat-label class="placeholderInput">Mes</mat-label>
                     <mat-select [(ngModel)]="monthFilter">
                       <mat-option *ngFor="let month of months" [value]="month.value">
                         {{month.name}}
@@ -51,6 +54,7 @@
             </div>
             <div class="income-input">
                 <mat-form-field>
+                    <mat-label class="placeholderInput">Monto Máx.</mat-label>
                     <input matInput type="number" [(ngModel)]="amountMaxFilter" >
                 </mat-form-field>      
             </div>
@@ -67,37 +71,37 @@
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
           <!-- <mat-cell *matCellDef="let element" [matTooltip] = "element | json"> {{element.description}} </mat-cell> -->
-          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+          <mat-cell *matCellDef="let element"><span class="mobile-label">Descripción :</span> {{element.description}} </mat-cell>
         </ng-container>
       
         <!-- fechaR Column -->
         <ng-container matColumnDef="dateCreation">
           <mat-header-cell *matHeaderCellDef> F. Registro </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.dateCreation | date: 'dd/MM/yyyy'}} </mat-cell>
+          <mat-cell *matCellDef="let element"><span class="mobile-label">F. Registro :</span> {{element.dateCreation | date: 'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
-      
+    
         <!-- fechaA Column -->
         <ng-container matColumnDef="dateApply">
           <mat-header-cell *matHeaderCellDef> F. Activación </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.dateApply | date: 'dd/MM/yyyy'}} </mat-cell>
+          <mat-cell *matCellDef="let element"><span class="mobile-label">F. Activación :</span> {{element.dateApply | date: 'dd/MM/yyyy'}} </mat-cell>
         </ng-container>
 
         <!-- Moneda Column -->
         <ng-container matColumnDef="moneda">
             <mat-header-cell *matHeaderCellDef> Moneda </mat-header-cell> 
-            <mat-cell *matCellDef="let element"> {{ element.idMoneda | coin }} </mat-cell>
+            <mat-cell *matCellDef="let element"><span class="mobile-label">Moneda :</span> {{ element.idMoneda | coin }} </mat-cell>
         </ng-container>
 
         <!-- Monto Column -->
         <ng-container matColumnDef="amount">
             <mat-header-cell *matHeaderCellDef> Monto </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.amount | number : '1.2-2'}} </mat-cell>
+            <mat-cell *matCellDef="let element"><span class="mobile-label">Monto :</span> {{element.amount | number : '1.2-2'}} </mat-cell>
         </ng-container>
 
         <!-- id Column -->
         <ng-container matColumnDef="idUser">
             <mat-header-cell *matHeaderCellDef> Acción </mat-header-cell>
-            <mat-cell *matCellDef="let element"><mat-icon (click)="delete(element)"  class="icon-delete">delete</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let element"><span class="mobile-label">Eliminar :</span><mat-icon (click)="delete(element)"  class="icon-delete">delete</mat-icon></mat-cell>
         </ng-container>
       
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
