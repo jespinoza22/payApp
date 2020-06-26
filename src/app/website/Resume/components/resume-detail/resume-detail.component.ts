@@ -64,6 +64,7 @@ export class ResumeDetailComponent implements OnInit {
     this.calculateDays();
 
     this.incomeService.getIncome('', this.year, this.month).subscribe(result => {
+      console.log(result, 'income result');
       this.setResult(result, 0);
     });
 
@@ -94,10 +95,10 @@ export class ResumeDetailComponent implements OnInit {
     result.forEach(element => {
       const date = new Date(Date.parse(element.dateApply));
       if ( element.idMoneda === '01' ) {
-        defaultSoles[date.getDate() - 1] = element.amount;
+        defaultSoles[date.getDate() - 1] += element.amount;
       }
       else if ( element.idMoneda === '02' ) {
-        defaultDolares[date.getDate() - 1] = element.amount;
+        defaultDolares[date.getDate() - 1] += element.amount;
       }
     });
 
