@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResumeDetailComponent } from './resume-detail.component';
 
-describe('ResumeDetailComponent', () => {
+xdescribe('ResumeDetailComponent', () => {
   let component: ResumeDetailComponent;
   let fixture: ComponentFixture<ResumeDetailComponent>;
 

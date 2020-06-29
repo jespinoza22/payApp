@@ -22,7 +22,6 @@ export class CardsService {
 
   createCard(card: Card){
     card.IdUser = this.auth.userProfile.sub;
-    console.log(card, 'card');
     return this.http.post(`${environment.url_api}card`, card)
     .subscribe(
       data => console.log('successpost', data),

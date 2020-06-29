@@ -41,13 +41,10 @@ export class AuthService {
 
   private handleAuthCallback() {
     const params = window.location.search;
-    console.log(params, 'params');
     if (params.includes('code=') && params.includes('state=')) {
-      console.log(params, 'handleRedirectCallback');
       this.auth0.handleRedirectCallback().then(redirectResult => {
         this.auth0.getUser().then(user => {
           this.userProfile = user;
-          console.log(user, 'user');
         });
         this.auth0.isAuthenticated().then(value => {
           this.loggedIn = value;
@@ -63,9 +60,7 @@ export class AuthService {
       // appState: { target: redirectPath }
     }).then(token => {
       this.auth0.getUser().then(user => {
-        console.log(user, 'user');
       });
-      console.log(token, 'token');
     });
   }
 
@@ -86,9 +81,7 @@ export class AuthService {
       login_hint: 'demo@gmail.com'
     }).then(token => {
       this.auth0.getUser().then(user => {
-        console.log(user, 'user');
       });
-      console.log(token, 'token');
     });
   }
 }

@@ -7,7 +7,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
 import { LayoutComponent } from './layout/layout.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'site',
     component: LayoutComponent,

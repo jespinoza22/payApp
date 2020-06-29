@@ -75,7 +75,6 @@ export class InterceptorService implements HttpInterceptor {
    * Sets the token in local storage
    */
   async storeToken( token: string ) {
-    console.log('settoken');
     await localStorage.setItem('userToken', token );
   }
   /**
