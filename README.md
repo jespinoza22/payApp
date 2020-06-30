@@ -4,15 +4,15 @@ An application to save iformation about debts, and administrate it.
 ![Login](https://user-images.githubusercontent.com/25330510/85813652-64bef600-b729-11ea-93a4-d215961959f6.png)
 Login pass Demo user: 123456zZ
 
-Some technical characteristics about this application:
+## Some technical characteristics about this application:
 
-Use auth0 to authorizarion
+- Use auth0 to authorizarion
 
-Some test is use in this application
+- Some test is use in this application
 
-Use material desgin
+- Use material desgin
 
-Use Chart.js to some charts
+- Use Chart.js to some charts
 
 ## Install
 Run `npm install` for a dev server.
