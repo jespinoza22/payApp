@@ -5,10 +5,14 @@ An application to save iformation about debts, and administrate it.
 Login pass Demo user: 123456zZ
 
 Some technical characteristics about this application:
--Use auth0 to authorizarion
--Some test is use in this application
--Use material desgin
--Use Chart.js to some charts
+
+Use auth0 to authorizarion
+
+Some test is use in this application
+
+Use material desgin
+
+Use Chart.js to some charts
 
 ## Install
 Run `npm install` for a dev server.
